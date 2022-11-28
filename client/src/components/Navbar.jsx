@@ -10,13 +10,12 @@ import {
   Menu,
   MenuItem,
   Tooltip,
-  Avatar,
-  Button
+  Avatar
 } from "@mui/material";
 import { Box } from "@mui/system";
 import MenuIcon from "@mui/icons-material/Menu";
 
-const pages = ["Login", "Register", "Blog"];
+const pages = ["login", "register", "blog"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 const Navbar = () => {
@@ -80,9 +79,10 @@ const Navbar = () => {
                 sx={{ display: { xs: "block", md: "none" } }}
               >
                 {pages.map((page) => (
-                  <MenuItem key={page} onClick={handleCloseNav}>
+                  <NavLink key={page} to={page} onClick={handleCloseNav}
+                  style={{ my: 2, color: 'black', textDecoration: 'none', textTransform: 'capitalize' }}>
                     <Typography textAlign="center">{page}</Typography>
-                  </MenuItem>
+                  </NavLink>
                 ))}
               </Menu>
             </Box>
@@ -103,13 +103,10 @@ const Navbar = () => {
             </Typography>
             <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
               {pages.map((page) => (
-                <Button
-                  key={page}
-                  onClick={handleCloseNav}
-                  sx={{ my: 2, color: "white", display: "block" }}
-                >
-                  {page}
-                </Button>
+                <NavLink key={page} to={page} onClick={handleCloseNav}
+                style={{ color: 'inherit', textDecoration: 'none', textTransform: 'capitalize' }}>
+                  <Typography textAlign="center">{page}</Typography>
+                </NavLink>
               ))}
             </Box>
 
